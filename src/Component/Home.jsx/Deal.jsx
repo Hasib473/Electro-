@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import dealfireimg from '../../assets/DealFireimg.png'
 import readmiimg from '../../assets/redmi.png'
+import monitor from '../../assets/tv.png'
+import pccase from '../../assets/pccase.png'
+import acimg from '../../assets/Acimg.png'
+import hairer from '../../assets/Haier.png'
+import watchimg from '../../assets/watch.png'
+import headphoneimg from '../../assets/headphone.png'
+import owenimg from "../../assets/mowen.png"
+import mixerimg from '../../assets/mixer.png'
+import haircutterimg from '../../assets/braidmachine.png'
 
 const Deal = () => {
     const calculateTimeLeft = () => {
@@ -47,7 +56,7 @@ const Deal = () => {
         },
         {
             id: 2,
-            image: '/icons.svg',
+            image: monitor,
             discount: '34% off',
             name: 'SONY BRAVIA 2 43 INCH L...',
             rating: 5.0,
@@ -57,7 +66,7 @@ const Deal = () => {
         },
         {
             id: 3,
-            image: '/icons.svg',
+            image: pccase,
             discount: '15% off',
             name: 'KELVINATOR 537L INVERT...',
             rating: 5.0,
@@ -67,7 +76,7 @@ const Deal = () => {
         },
         {
             id: 4,
-            image: '/icons.svg',
+            image:acimg,
             discount: '15% off',
             name: 'HAIER 1.5 TON AQUACOOL...',
             rating: 5.0,
@@ -77,7 +86,7 @@ const Deal = () => {
         },
         {
             id: 5,
-            image: '/icons.svg',
+            image: hairer,
             discount: '35% off',
             name: 'HAIER 8KG TOP LOAD AUT...',
             rating: 5.0,
@@ -87,7 +96,7 @@ const Deal = () => {
         },
         {
             id: 6,
-            image: '/icons.svg',
+            image: watchimg,
             discount: '12% off',
             name: 'KIESLECKT KS 3 CURVED A...',
             rating: 5.0,
@@ -97,7 +106,7 @@ const Deal = () => {
         },
         {
             id: 7,
-            image: '/icons.svg',
+            image: headphoneimg,
             discount: '21% off',
             name: 'HAYLOU S40 ANC BLUETO...',
             rating: 5.0,
@@ -107,7 +116,7 @@ const Deal = () => {
         },
         {
             id: 8,
-            image: '/icons.svg',
+            image: owenimg,
             discount: '15% off',
             name: 'TQIU S3 GLASS WINDOW D...',
             rating: 5.0,
@@ -117,7 +126,7 @@ const Deal = () => {
         },
         {
             id: 9,
-            image: '/icons.svg',
+            image: mixerimg,
             discount: '40% off',
             name: 'PANASONIC 1200W 3 JAR...',
             rating: 5.0,
@@ -127,7 +136,7 @@ const Deal = () => {
         },
         {
             id: 10,
-            image: '/icons.svg',
+            image: haircutterimg,
             discount: '50% off',
             name: 'HAIER 8KG TOP LOAD AUT...',
             rating: 5.0,
