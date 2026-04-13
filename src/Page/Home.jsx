@@ -6,6 +6,7 @@ import NewsandBlog from '../Component/Home.jsx/NewsandBlog';
 import Support from '../Component/Home.jsx/Support';
 import Manufacturer from '../Component/Home.jsx/Manufacturer';
 import AddSpace from '../Component/Home.jsx/AddSpace';
+import TopProduct from '../Component/Home.jsx/TopProduct';
 
 const Home = () => {
     return (
@@ -20,6 +21,11 @@ const Home = () => {
             <div>
                 <Deal/>
             </div>
+
+            <div>
+                <TopProduct/>
+            </div>
+
             <div>
                 <NewsandBlog/>
             </div>

@@ -1,7 +1,14 @@
 import React from 'react';
 import CategoriesDropdown from './CategoriesDropdown';
+import { Link, useNavigate } from 'react-router';
+import { useCart } from '../../context/CartContext';
+import { useWishlist } from '../../context/WishlistContext';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+    const { getCartCount } = useCart();
+    const { wishlistItems } = useWishlist();
+
     return (
         <header className="w-full bg-white border-b border-gray-200">
             {/* Top Row */}
@@ -9,7 +16,7 @@ const Navbar = () => {
                 {/* Logo */}
                 <div className="flex-shrink-0">
                     <h1 className="text-3xl font-bold text-slate-800 tracking-tight">
-                        ELECTRO.
+                        <Link to="/">ELECTRO.</Link>
                     </h1>
                 </div>
 
@@ -41,7 +48,8 @@ const Navbar = () => {
                     <button
                         type="button"
                         aria-label="Wishlist"
-                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                        className="text-gray-400 hover:text-gray-600 transition-colors relative"
+                        onClick={() => navigate('/wishlist')}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -57,13 +65,19 @@ const Navbar = () => {
                                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                             />
                         </svg>
+                        {wishlistItems.length > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                                {wishlistItems.length}
+                            </span>
+                        )}
                     </button>
 
                     {/* Cart Icon */}
                     <button
                         type="button"
                         aria-label="Shopping Cart"
-                        className="text-gray-400 hover:text-gray-600 transition-colors"
+                        className="text-gray-400 hover:text-gray-600 transition-colors relative"
+                        onClick={() => navigate('/cart')}
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +93,11 @@ const Navbar = () => {
                                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                             />
                         </svg>
+                        {getCartCount() > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                                {getCartCount()}
+                            </span>
+                        )}
                     </button>
 
                     {/* User Icon */}
@@ -144,7 +163,9 @@ const Navbar = () => {
                 </ul>
 
                 <div>
-                    <button className='btn btn-soft'>Login</button>
+                    <Link to="/login" className="text-sm font-medium text-gray-500 hover:text-gray-700 transition-colors">
+                        Login
+                    </Link>
                 </div>
             </nav>
         </header>

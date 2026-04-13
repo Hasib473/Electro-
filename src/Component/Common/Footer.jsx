@@ -2,17 +2,17 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="w-full bg-[#222222] text-white">
+        <footer className="w-full bg-black text-gray-300 border-t border-gray-200">
             <div className="max-w-7xl mx-auto px-6 py-12">
                 {/* Logo and Description */}
                 <div className="mb-12">
                     <h1 className="text-4xl font-bold tracking-tight mb-6">
                         ELECTRO.
                     </h1>
-                    <p className="text-gray-300 leading-relaxed max-w-5xl mb-3">
+                    <p className="text-gray-700 leading-relaxed max-w-5xl mb-3">
                         We are a lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat...
                     </p>
-                    <button className="text-gray-300 hover:text-white transition-colors">
+                    <button className="text-gray-700 hover:text-gray-900 transition-colors">
                         Read More
                     </button>
                 </div>
@@ -149,7 +149,7 @@ const Footer = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="bg-[#333333] text-white px-6 py-3 rounded-r-md hover:bg-[#444444] transition-colors font-medium"
+                                className="bg-gray-900 text-white px-6 py-3 rounded-r-md hover:bg-gray-800 transition-colors font-medium"
                             >
                                 Submit
                             </button>
