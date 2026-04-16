@@ -1,5 +1,6 @@
 import React from 'react';
 import CategoriesDropdown from './CategoriesDropdown';
+import NotificationBar from './NotificationBar';
 import { Link, useNavigate } from 'react-router';
 import { useCart } from '../../context/CartContext';
 import { useWishlist } from '../../context/WishlistContext';
@@ -10,7 +11,11 @@ const Navbar = () => {
     const { wishlistItems } = useWishlist();
 
     return (
-        <header className="w-full bg-white border-b border-gray-200">
+        <>
+            {/* Notification Bar */}
+            <NotificationBar />
+
+            <header className="w-full bg-white border-b border-gray-200">
             {/* Top Row */}
             <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
                 {/* Logo */}
@@ -153,12 +158,9 @@ const Navbar = () => {
                         </button>
                     </li>
                     <li>
-                        <button
-                            type="button"
-                            className="text-gray-500 hover:text-gray-700 transition-colors font-medium text-sm uppercase tracking-wide"
-                        >
+                       <Link to="/giftcards" className="text-gray-500 hover:text-gray-700 transition-colors font-medium text-sm uppercase tracking-wide">
                             Giftcards
-                        </button>
+                        </Link>
                     </li>
                 </ul>
 
@@ -169,6 +171,7 @@ const Navbar = () => {
                 </div>
             </nav>
         </header>
+        </>
     );
 };
 

@@ -25,7 +25,7 @@ const Feature = () => {
             description: 'Discover our curated collection of premium cooking ware.',
             image: kichenimg
         },
-       
+
         {
             id: 4,
             title: 'Home Appliances',
@@ -38,7 +38,7 @@ const Feature = () => {
     const cardWidth = 408; // card width (400px) + margins (8px from mx-2)
     const containerPadding = 16; // small padding on right side
     const visibleWidth = cardsPerView * cardWidth + containerPadding; // 1240px
-    const totalCards = categories.length; // 6
+    const totalCards = categories.length; // 4
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(true);
 

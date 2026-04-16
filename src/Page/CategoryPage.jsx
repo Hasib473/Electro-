@@ -7,13 +7,13 @@ const categoriesData = {
         slug: 'home-appliances',
         subcategories: {
             'Kitchen Appliances': [
-                'Refrigerator',
-                'Ovens & Microwaves',
-                'Dishwashers',
-                'Breakfast Makers',
-                'Blenders & Mixers',
-                'Coffee & Beverage',
-                'Cookers'
+                { name: 'Refrigerator', link: '/kitchen/refrigerator' },
+                { name: 'Ovens & Microwaves', link: '/kitchen/ovens-microwaves' },
+                { name: 'Dishwashers', link: '/kitchen/dishwashers' },
+                { name: 'Breakfast Makers', link: '/kitchen/breakfast-makers' },
+                { name: 'Blenders & Mixers', link: '/kitchen/blenders-mixers' },
+                { name: 'Coffee & Beverage', link: '/kitchen/coffee-beverage' },
+                { name: 'Cookers', link: '/kitchen/cookers' }
             ],
             'Laundry & Cleaning': [
                 'Refrigerator',
@@ -128,9 +128,9 @@ const categoriesData = {
             ]
         }
     },
-    'cameras': {
-        title: 'Cameras',
-        slug: 'cameras',
+    'cameras and Tv': {
+        title: 'Cameras & TVs',
+        slug: 'cameras-and-tv',
         subcategories: {
             'Digital Cameras': [
                 'DSLR Cameras',
@@ -142,6 +142,12 @@ const categoriesData = {
                 'Tripods',
                 'Camera Bags',
                 'Memory Cards'
+            ],
+            'Televisions': [
+                { name: 'LED TVs', link: '/led-tv' },
+                { name: 'OLED TVs', link: '/led-tv' },
+                { name: 'QLED TVs', link: '/led-tv' },
+                { name: '4K & 8K TVs', link: '/led-tv' }
             ]
         }
     },
@@ -219,16 +225,30 @@ const CategoryPage = () => {
                             {subcategoryName}
                         </h2>
                         <ul className="space-y-3">
-                            {items.map((item) => (
-                                <li key={item}>
-                                    <Link
-                                        to={`/category/${categorySlug}/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                        className="text-gray-600 hover:text-blue-600 transition-colors"
-                                    >
-                                        {item}
-                                    </Link>
-                                </li>
-                            ))}
+                            {items.map((item) => {
+                                const itemName = typeof item === 'object' ? item.name : item;
+                                const itemLink = typeof item === 'object' ? item.link : null;
+                                
+                                return (
+                                    <li key={itemName}>
+                                        {itemLink ? (
+                                            <Link
+                                                to={itemLink}
+                                                className="text-gray-600 hover:text-blue-600 transition-colors"
+                                            >
+                                                {itemName}
+                                            </Link>
+                                        ) : (
+                                            <Link
+                                                to={`/category/${categorySlug}/${itemName.toLowerCase().replace(/\s+/g, '-')}`}
+                                                className="text-gray-600 hover:text-blue-600 transition-colors"
+                                            >
+                                                {itemName}
+                                            </Link>
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
                 ))}

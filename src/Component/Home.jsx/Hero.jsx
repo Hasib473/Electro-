@@ -58,7 +58,7 @@ const Hero = () => {
                 className="flex transition-transform duration-700 ease-in-out h-full"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
-                {slides.map((slide, index) => (
+                {slides.map((slide) => (
                     <div
                         key={slide.id}
                         className="w-full flex-shrink-0 relative h-full"

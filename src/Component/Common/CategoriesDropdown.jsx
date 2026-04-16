@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const categoriesData = {
     'Home Appliances': {
         slug: 'home-appliances',
         subcategories: {
             'Kitchen Appliances': [
-                'Refrigerator',
-                'Ovens & Microwaves',
-                'Dishwashers',
-                'Breakfast Makers',
-                'Blenders & Mixers',
-                'Coffee & Beverage',
-                'Cookers'
+                { name: 'Refrigerator', link: '/kitchen/refrigerator' },
+                { name: 'Ovens & Microwaves', link: '/kitchen/ovens-microwaves' },
+                { name: 'Dishwashers', link: '/kitchen/dishwashers' },
+                { name: 'Breakfast Makers', link: '/kitchen/breakfast-makers' },
+                { name: 'Blenders & Mixers', link: '/kitchen/blenders-mixers' },
+                { name: 'Coffee & Beverage', link: '/kitchen/coffee-beverage' },
+                { name: 'Cookers', link: '/kitchen/cookers' }
             ],
             'Laundry & Cleaning': [
                 'Washing Machines',
@@ -120,8 +120,8 @@ const categoriesData = {
             ]
         }
     },
-    'Cameras': {
-        slug: 'cameras',
+    'Cameras and TVs': {
+        slug: 'cameras-and-tv',
         subcategories: {
             'Digital Cameras': [
                 'DSLR Cameras',
@@ -133,9 +133,15 @@ const categoriesData = {
                 'Tripods',
                 'Camera Bags',
                 'Memory Cards'
-            ]
-        }
-    },
+            ],
+            'Televisions': [
+                { name: 'LED TVs', link: '/led-tv' },
+                { name: 'OLED TVs', link: '/led-tv' },
+                { name: 'QLED TVs', link: '/led-tv' },
+                { name: '4K & 8K TVs', link: '/led-tv' }
+             ]
+         }
+     },
     'Wearable': {
         slug: 'wearable',
         subcategories: {
@@ -147,9 +153,10 @@ const categoriesData = {
             'VR & AR': [
                 'VR Headsets',
                 'AR Glasses'
-            ]
+            ]       
         }
     },
+  
     'Office Equipment': {
         slug: 'office-equipment',
         subcategories: {
@@ -282,16 +289,34 @@ const CategoriesDropdown = () => {
                                                 {subcategory}
                                             </h3>
                                             <ul className="space-y-2">
-                                                {items.map((item) => (
-                                                    <li key={item}>
-                                                        <button
-                                                            type="button"
-                                                            className="text-gray-600 hover:text-blue-500 transition-colors text-sm"
-                                                        >
-                                                            {item}
-                                                        </button>
-                                                    </li>
-                                                ))}
+                                                {items.map((item) => {
+                                                    const itemName = typeof item === 'object' ? item.name : item;
+                                                    const itemLink = typeof item === 'object' ? item.link : null;
+                                                    
+                                                    return (
+                                                        <li key={itemName}>
+                                                            {itemLink ? (
+                                                                <Link
+                                                                    to={itemLink}
+                                                                    className="text-gray-600 hover:text-blue-500 transition-colors text-sm"
+                                                                    onClick={() => {
+                                                                        setIsOpen(false);
+                                                                        setActiveCategory(null);
+                                                                    }}
+                                                                >
+                                                                    {itemName}
+                                                                </Link>
+                                                            ) : (
+                                                                <button
+                                                                    type="button"
+                                                                    className="text-gray-600 hover:text-blue-500 transition-colors text-sm"
+                                                                >
+                                                                    {itemName}
+                                                                </button>
+                                                            )}
+                                                        </li>
+                                                    );
+                                                })}
                                             </ul>
                                         </div>
                                     )
