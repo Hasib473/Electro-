@@ -1,1 +1,1 @@
-live lInk:
+live lInk:elector.netlify.app
